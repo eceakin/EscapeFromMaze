@@ -5,4 +5,6 @@ module EscapeFromMaze {
 	//gel artık gelllllllll
 	
 	//ne zaman olcakkkkk
+	
+	//biri beni durdursunnnnn
 }
