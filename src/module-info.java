@@ -7,4 +7,5 @@ module EscapeFromMaze {
 	//ne zaman olcakkkkk
 	
 	//biri beni durdursunnnnn
+	//oldu lan.
 }
