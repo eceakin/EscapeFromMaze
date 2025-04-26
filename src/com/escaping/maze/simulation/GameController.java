@@ -4,9 +4,11 @@ import com.escaping.maze.manager.MazeManager;
 import com.escaping.maze.manager.TurnManager;
 import com.escaping.maze.model.Agent;
 import com.escaping.maze.model.MazeTile;
+import com.escaping.maze.structures.Queue;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 import java.util.Random;
 
 public class GameController {
@@ -14,11 +16,16 @@ public class GameController {
     private TurnManager turns;
     private int maxTurns;
     private int turnCount;
+    private int totalTrapsTriggered;
+    private int totalPowerUpsCollected;
+    private Agent winner;
+    private Queue<Agent> agentQueue;
 
     public GameController(int width, int height, int numAgents, int maxTurns) {
         this.maze = new MazeManager(width, height, numAgents);
         this.turns = new TurnManager();
         this.maxTurns = maxTurns;
+        this.agentQueue = new Queue<>();
         this.turnCount = 0;
     }
 
@@ -58,7 +65,7 @@ public class GameController {
             turns.advanceTurn();
         }
 
-        printFinalStatistics();
+        printStatistics();
         logGameSummaryToFile("game_summary.txt");
     }
 
@@ -82,6 +89,9 @@ public class GameController {
             if (tile.getType() == 'G') {
                 agent.setReachedGoal(true);
                 System.out.println("Agent " + agent.getId() + " has reached the goal!");
+                if (winner == null) { // ilk goal'u bulanı kaydet
+                    winner = agent;
+                }
             }
         } else {
             // If invalid move, maybe wait or try another random move in future improvements
@@ -92,26 +102,55 @@ public class GameController {
         if (tile.getType() == 'T') {
             System.out.println("Agent " + agent.getId() + " triggered a trap!");
             agent.backtrack();
+            totalTrapsTriggered++; 
         } else if (tile.getType() == 'P') {
             System.out.println("Agent " + agent.getId() + " collected a power-up!");
             agent.collectPowerUp();
+            totalPowerUpsCollected++;
         }
     }
 
-    public void printFinalStatistics() {
-        System.out.println("\nFinal Statistics:");
-        System.out.println("Total Turns: " + turnCount);
+    public void printStatistics() {
+    	 List<Agent> agents = turns.getAllAgents(); //
+        StringBuilder stats = new StringBuilder();
+        stats.append("Total Turns: ").append(turns.currentRound - 1).append("\n");
+
+        // Ajanların istatistiklerini yazdır
+        for (Agent agent :agents) {
+            stats.append("Agent ").append(agent.getId()).append(" Statistics:\n")
+                 .append("Moves: ").append(agent.getMoveCount()).append("\n")
+                 .append("Backtracks: ").append(agent.getBacktrackCount()).append("\n")
+                 .append("Traps Triggered: ").append(agent.getTrapCount()).append("\n")
+                 .append("Power-ups Used: ").append(agent.getPowerUpCount()).append("\n")
+                 .append("Max Stack Depth: ").append(agent.getMaxStackDepth()).append("\n");
+        }
+
+        // Kazananı yazdır
+        if (winner != null) {
+            stats.append("Winner: Agent ").append(winner.getId()).append("\n");
+        }
+
+        // Özet ekranı yazdır
+        System.out.println(stats.toString());
     }
 
+
+
     public void logGameSummaryToFile(String filename) {
-        try {
-            FileWriter writer = new FileWriter(filename);
+        try (FileWriter writer = new FileWriter(filename)) {
             writer.write("Game Summary:\n");
-            writer.write("Total Turns: " + turnCount + "\n");
+            writer.write("Total Turns: " + (turns.currentRound - 1) + "\n");
+
+            // Kazananı yaz
+            if (winner != null) {
+                writer.write("Winner: Agent " + winner.getId() + "\n");
+            }
+
             writer.close();
             System.out.println("Game summary written to " + filename);
         } catch (IOException e) {
             System.out.println("Error writing to file: " + e.getMessage());
         }
     }
+
 }
