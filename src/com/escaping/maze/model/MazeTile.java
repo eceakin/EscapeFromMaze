@@ -14,7 +14,7 @@ public class MazeTile {
     }
 
     public boolean isTraversable() {
-        return type != 'W'; // wall değilse geçebilir
+        return type != 'W'; // if it is not a wall, it can pass
     }
 
     public String toString() {
@@ -22,7 +22,7 @@ public class MazeTile {
         return String.valueOf(type);
     }
 
-    // Getter ve Setter'lar
+    // Getters and Setters
     public int getX() { return x; }
     public int getY() { return y; }
     public char getType() { return type; }

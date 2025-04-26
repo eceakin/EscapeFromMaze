@@ -155,7 +155,7 @@ public class GameController {
             List<Agent> agents = turns.getAllAgents();
             int totalTrapCount = 0;
             int totalPowerUpCount = 0;
-            int totalMoveCount = 0;
+            int totalMoves = 0;
             Agent mostMovesAgent = null;
             int maxMoves = 0;
             
@@ -170,7 +170,7 @@ public class GameController {
                 
                 totalTrapCount += agent.getTrapCount();
                 totalPowerUpCount += agent.getPowerUpCount();
-                totalMoveCount += agent.getMoveCount();
+                totalMoves += agent.getMoveCount();
                 if (agent.getMoveCount() > maxMoves) {
                     maxMoves = agent.getMoveCount();
                     mostMovesAgent = agent;

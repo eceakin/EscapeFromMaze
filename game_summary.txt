@@ -1,51 +1,52 @@
 Game Summary:
 Total Turns: 50
 -------------------------------------
+ Winner: Agent 1
 Agent 1 Statistics:
-Moves: 9
-Backtracks: 1
-Traps Triggered: 0
-Power-ups Used: 0
-Max Stack Depth: 9
-Agent 2 Statistics:
-Moves: 6
-Backtracks: 0
-Traps Triggered: 0
-Power-ups Used: 0
-Max Stack Depth: 7
-Agent 3 Statistics:
 Moves: 8
 Backtracks: 0
 Traps Triggered: 0
 Power-ups Used: 1
 Max Stack Depth: 9
-Agent 4 Statistics:
-Moves: 9
+Agent 2 Statistics:
+Moves: 8
+Backtracks: 1
+Traps Triggered: 0
+Power-ups Used: 0
+Max Stack Depth: 8
+Agent 3 Statistics:
+Moves: 6
 Backtracks: 0
 Traps Triggered: 0
 Power-ups Used: 0
-Max Stack Depth: 10
+Max Stack Depth: 7
+Agent 4 Statistics:
+Moves: 4
+Backtracks: 0
+Traps Triggered: 0
+Power-ups Used: 2
+Max Stack Depth: 5
 Agent 5 Statistics:
-Moves: 9
-Backtracks: 3
+Moves: 6
+Backtracks: 4
 Traps Triggered: 0
 Power-ups Used: 0
-Max Stack Depth: 7
+Max Stack Depth: 4
 -------------------------------------
 === GENERAL STATISTICS ===
-Total Traps Triggered: 4
-Total Power-ups Used: 1
-Average Moves Per Agent: 8.2
+Total Traps Triggered: 5
+Total Power-ups Used: 3
+Average Moves Per Agent: 6.4
 Agent with Most Moves: Agent 1
 ----------------------------------------------------
 Final Maze State:
-A E A A W E E A E 
-A P A A E E A G E 
-A E E E E A E W W 
-E T W E P E E E W 
-E W T P A E E T E 
-E W P E A W A A W 
-A E E E E A E E E 
-T W A E E A T W P 
-E E P E E E E T E 
+E P E E A E A E E 
+E W W T W W W W A 
+E A E A W A E W E 
+T E E E E P W E E 
+E T E E A E W W A 
+T W E W A W E E E 
+E E E W W T E W T 
+E W E T A T A E A 
+A W E E T E A A E 
 ----------------------------------------
