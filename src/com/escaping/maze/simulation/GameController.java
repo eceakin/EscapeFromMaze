@@ -115,7 +115,7 @@ public class GameController {
         StringBuilder stats = new StringBuilder();
         stats.append("Total Turns: ").append(turns.currentRound - 1).append("\n");
 
-        // Ajanların istatistiklerini yazdır
+     // Print agents statistics
         for (Agent agent :agents) {
             stats.append("Agent ").append(agent.getId()).append(" Statistics:\n")
                  .append("Moves: ").append(agent.getMoveCount()).append("\n")
@@ -125,14 +125,16 @@ public class GameController {
                  .append("Max Stack Depth: ").append(agent.getMaxStackDepth()).append("\n");
         }
 
-        // Kazananı yazdır
+     // Print the winner
         if (winner != null) {
             stats.append("Winner: Agent ").append(winner.getId()).append("\n");
         }
 
-        // Özet ekranı yazdır
+      //Print summary screen
         System.out.println(stats.toString());
     }
+    
+    
 
 
 
@@ -140,13 +142,65 @@ public class GameController {
         try (FileWriter writer = new FileWriter(filename)) {
             writer.write("Game Summary:\n");
             writer.write("Total Turns: " + (turns.currentRound - 1) + "\n");
+            
+            writer.write("-------------------------------------");
+            writer.write("\n");
 
-            // Kazananı yaz
+         // Print the winner
             if (winner != null) {
-                writer.write("Winner: Agent " + winner.getId() + "\n");
+            	
+                writer.write( " Winner: Agent " + winner.getId() + "\n");
+            }
+            
+            List<Agent> agents = turns.getAllAgents();
+            int totalTrapCount = 0;
+            int totalPowerUpCount = 0;
+            int totalMoveCount = 0;
+            Agent mostMovesAgent = null;
+            int maxMoves = 0;
+            
+            List<Agent> agents1 = turns.getAllAgents();
+            for (Agent agent :agents1) {
+                writer.write("Agent " + agent.getId() + " Statistics:\n");
+                writer.write("Moves: " + agent.getMoveCount() + "\n");
+                writer.write("Backtracks: " + agent.getBacktrackCount() + "\n");
+                writer.write("Traps Triggered: " + agent.getTrapCount() + "\n");
+                writer.write("Power-ups Used: " + agent.getPowerUpCount() + "\n");
+                writer.write("Max Stack Depth: " + agent.getMaxStackDepth() + "\n");
+                
+                totalTrapCount += agent.getTrapCount();
+                totalPowerUpCount += agent.getPowerUpCount();
+                totalMoveCount += agent.getMoveCount();
+                if (agent.getMoveCount() > maxMoves) {
+                    maxMoves = agent.getMoveCount();
+                    mostMovesAgent = agent;
+                }
+            }
+            writer.write("-------------------------------------");
+            
+         //Print General Statistics 
+            writer.write("\n=== GENERAL STATISTICS ===\n");
+            writer.write("Total Traps Triggered: " + totalTrapsTriggered + "\n");
+            writer.write("Total Power-ups Used: " + totalPowerUpCount  + "\n");
+            writer.write("Average Moves Per Agent: " + (totalMoveCount / (double) agents1.size()) + "\n");
+            if (mostMovesAgent != null) {
+                writer.write("Agent with Most Moves: Agent " + mostMovesAgent.getId() + "\n");
+            }
+            
+            writer.write("----------------------------------------------------");
+         // Print Final Maze Map
+            writer.write("\nFinal Maze State:\n");
+
+            for (int i = 0; i < maze.height; i++) {
+                for (int j = 0; j < maze.width; j++) {
+                    writer.write(maze.getTile(i, j).toString() + " ");
+                }
+                writer.write("\n");
             }
 
-            writer.close();
+            writer.write("----------------------------------------");
+
+           
             System.out.println("Game summary written to " + filename);
         } catch (IOException e) {
             System.out.println("Error writing to file: " + e.getMessage());
