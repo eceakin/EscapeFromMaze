@@ -1,5 +1,7 @@
 package com.escaping.maze.structures;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class Queue<T> {
     private Node<T> front, rear;
@@ -44,5 +46,13 @@ public class Queue<T> {
 
     public int size() {
         return size;
+    }public List<T> getElements() {
+        List<T> elements = new ArrayList<>();
+        Node<T> current = front;
+        while (current != null) {
+            elements.add(current.data);
+            current = current.next;
+        }
+        return elements;
     }
 }
