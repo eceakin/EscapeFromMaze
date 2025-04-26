@@ -14,5 +14,6 @@ public class Main {
         game.initializeGame(numAgents);
         game.runSimulation(); 
         // DENEME
+        // deneme 2 
     }
 }
