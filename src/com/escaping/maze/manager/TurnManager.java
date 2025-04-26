@@ -10,11 +10,14 @@ public class TurnManager {
     private Queue<Agent> agentQueue;
     public int currentRound;
     private Agent winner;
+    private List<Agent> allAgents;
 
     public TurnManager() {
         this.agentQueue = new Queue<>();
         this.currentRound = 1;
         this.winner = null ;
+        this.allAgents = new ArrayList<>();
+
     }
  
 
@@ -25,6 +28,8 @@ public class TurnManager {
 
     public void addAgent(Agent a) {
         agentQueue.enqueue(a);
+        allAgents.add(a);
+
     }
 
     public void advanceTurn() {
@@ -50,7 +55,7 @@ public class TurnManager {
         System.out.println("Round: " + currentRound + ", Agent " + a.getId() + " at position (" + a.getX() + "," + a.getY() + ")");
     }
     public List<Agent> getAllAgents() {
-        return agentQueue.getElements();
+        return  allAgents;
     }
     public String prepareGameSummary() {
         List<Agent> agents = getAllAgents();

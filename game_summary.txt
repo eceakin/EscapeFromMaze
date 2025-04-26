@@ -1,3 +1,2 @@
 Game Summary:
-Total Turns: 100
-Winner: Agent 2
+Total Turns: 50
