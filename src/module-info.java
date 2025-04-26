@@ -1,11 +1,6 @@
-module EscapeFromMaze {
-	//deneme//deneme//deneme3
-	
-	//deneme12345
-	//gel artık gelllllllll
-	
-	//ne zaman olcakkkkk
-	
-	//biri beni durdursunnnnn
-	//oldu lan.
+module escape.maze {
+    exports com.escaping.maze.model;
+    exports com.escaping.maze.manager;
+    exports com.escaping.maze.simulation;
+    exports com.escaping.maze.structures;
 }
