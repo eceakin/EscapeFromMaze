@@ -1,3 +1,33 @@
 Game Summary:
 Total Turns: 50
-Winner: Agent 1
+-------------------------------------
+Agent 1 Statistics:
+Moves: 25
+Backtracks: 5
+Traps Triggered: 0
+Power-ups Used: 1
+Max Stack Depth: 21
+Agent 2 Statistics:
+Moves: 20
+Backtracks: 0
+Traps Triggered: 0
+Power-ups Used: 10
+Max Stack Depth: 21
+-------------------------------------
+=== GENERAL STATISTICS ===
+Total Traps Triggered: 5
+Total Power-ups Used: 11
+Average Moves Per Agent: 22.5
+Agent with Most Moves: Agent 1
+----------------------------------------------------
+Final Maze State:
+E E E W P A E P E 
+E E W P P E E E W 
+E E P P A E E T E 
+E E E A E E E E W 
+P E A E E E W E E 
+E E E T P E E E E 
+E E E E E P E W E 
+G W E E W E W E E 
+P E E E E P E E P 
+----------------------------------------

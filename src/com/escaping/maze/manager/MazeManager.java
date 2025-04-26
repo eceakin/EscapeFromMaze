@@ -4,11 +4,13 @@ import com.escaping.maze.model.Agent;
 import com.escaping.maze.model.MazeTile;
 import com.escaping.maze.structures.SinglyLinkedList;
 
+import java.util.List;
 import java.util.Random;
 
 public class MazeManager {
     private MazeTile[][] grid;
-    private int width, height;
+    public int width;
+	public int height;
     private SinglyLinkedList<Agent> agents;  // Singly Linked List kullanıyoruz
     private int[] rotatingRows; // koridorlar
 
@@ -109,4 +111,6 @@ public class MazeManager {
         return height;
     }
 
+	
+    
 }
