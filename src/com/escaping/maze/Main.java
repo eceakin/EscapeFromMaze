@@ -12,6 +12,7 @@ public class Main {
         GameController game = new GameController(mazeWidth, mazeHeight, numAgents, maxTurns);
 
         game.initializeGame(numAgents);
-        game.runSimulation();
+        game.runSimulation(); 
+        // DENEME
     }
 }
