@@ -153,7 +153,7 @@ public class GameController {
             }
             
             List<Agent> agents = turns.getAllAgents();
-            int totalTrapCount = 0;
+            int totalTrapsTriggered = 0;
             int totalPowerUpCount = 0;
             int totalMoves = 0;
             Agent mostMovesAgent = null;
@@ -168,7 +168,7 @@ public class GameController {
                 writer.write("Power-ups Used: " + agent.getPowerUpCount() + "\n");
                 writer.write("Max Stack Depth: " + agent.getMaxStackDepth() + "\n");
                 
-                totalTrapCount += agent.getTrapCount();
+                totalTrapsTriggered += agent.getTrapCount();
                 totalPowerUpCount += agent.getPowerUpCount();
                 totalMoves += agent.getMoveCount();
                 if (agent.getMoveCount() > maxMoves) {
@@ -182,7 +182,7 @@ public class GameController {
             writer.write("\n=== GENERAL STATISTICS ===\n");
             writer.write("Total Traps Triggered: " + totalTrapsTriggered + "\n");
             writer.write("Total Power-ups Used: " + totalPowerUpCount  + "\n");
-            writer.write("Average Moves Per Agent: " + (totalMoveCount / (double) agents1.size()) + "\n");
+            writer.write("Average Moves Per Agent: " + (totalMoves / (double) agents1.size()) + "\n");
             if (mostMovesAgent != null) {
                 writer.write("Agent with Most Moves: Agent " + mostMovesAgent.getId() + "\n");
             }
