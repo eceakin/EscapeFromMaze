@@ -12,10 +12,10 @@ Bu proje, **İzmir Kâtip Çelebi Üniversitesi CENG202 - Veri Yapıları** ders
 Amaç, klasik veri yapıları kullanarak çok ajanlı ve sıra tabanlı bir labirent kaçış simülasyonu gerçekleştirmektir.
 
 Bu simülasyonda:
-✔️ Ajanlar rastgele yönlere hareket eder,
-✔️ Tuzaklara düşebilir veya güçlendirici toplayabilir,
-✔️ Dönen koridorlar nedeniyle labirent yapısı sürekli değişir,
-✔️ Oyun sonunda ajanların performans istatistikleri kaydedilir.
+✔️ Ajanlar rastgele yönlere hareket eder,  
+✔️ Tuzaklara düşebilir veya güçlendirici toplayabilir,  
+✔️ Dönen koridorlar nedeniyle labirent yapısı sürekli değişir,  
+✔️ Oyun sonunda ajanların performans istatistikleri kaydedilir.  
 
 
 
