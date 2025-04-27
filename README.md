@@ -1,8 +1,8 @@
  🏃‍♂️ Escape from the Maze: A Turn-Based Simulation Game
 
-![Java](https://img.shields.io/badge/Java-17%2B-red?style=for-the-badge&logo=java)
-![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge)
-![License](https://img.shields.io/badge/License-Educational-lightgrey?style=for-the-badge)
+![Java](https://img.shields.io/badge/Java-17%2B-red?style=for-the-badge&logo=java)  
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge)  
+![License](https://img.shields.io/badge/License-Educational-lightgrey?style=for-the-badge)  
 
 
 
