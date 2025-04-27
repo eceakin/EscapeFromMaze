@@ -19,50 +19,50 @@ Bu simülasyonda:
 
 
 
- 🛠️ Kullanılan Teknolojiler ve Veri Yapıları
+ 🛠️ Kullanılan Teknolojiler ve Veri Yapıları  
 
- 🚀 Java 17
- 🧱 Stack (Yığın) → Ajanların hareket geçmişi
- 🚦 Queue (Kuyruk) → Ajanların tur sıralaması
- 🔗 Singly Linked List → Ajanların listelenmesi
- 🔄 Circular Linked List → Dönen koridor yapısı
- 🗺️ 2D Array → Labirent ızgarası
-
-
-
- 📦 Proje Yapısı 
-
-com/
-└── escaping/
-    └── maze/
-        ├── Main.java                // Programı başlatır
-        ├── simulation/
-        │    └── GameController.java  // Simülasyonu yönetir
-        ├── manager/
-        │    ├── MazeManager.java     // Labirenti oluşturur
-        │    └── TurnManager.java     // Ajan sıralamasını yönetir
-        ├── model/
-        │    ├── Agent.java           // Ajan hareketleri ve istatistikleri
-        │    └── MazeTile.java        // Labirent hücre yapısı
-        └── structures/
-             ├── Stack.java
-             ├── Queue.java
-             ├── SinglyLinkedList.java
-             └── CircularLinkedList.java
+ 🚀 Java 17  
+ 🧱 Stack (Yığın) → Ajanların hareket geçmişi  
+ 🚦 Queue (Kuyruk) → Ajanların tur sıralaması  
+ 🔗 Singly Linked List → Ajanların listelenmesi  
+ 🔄 Circular Linked List → Dönen koridor yapısı  
+ 🗺️ 2D Array → Labirent ızgarası  
 
 
 
- 🚀 Kurulum ve Çalıştırma
-   ✨Gereksinimler
-      📌Java Development Kit (JDK) 17 veya üzeri
-      📌Bir Java IDE'si (IntelliJ IDEA, Eclipse, vs.) veya terminal
+ 📦 Proje Yapısı   
 
- 🚀 Çalıştırma Adımları
-  1️⃣ Tüm .java dosyalarını com.escaping.maze paket yapısına uygun yerleştirin.
-  2️⃣ Komut satırından derleyin:
-      javac com/escaping/maze/**/*.java
-  3️⃣ Programı çalıştırın 
-      java com.escaping.maze.Main
+com/  
+└── escaping/  
+    └── maze/  
+        ├── Main.java                // Programı başlatır  
+        ├── simulation/  
+        │    └── GameController.java  // Simülasyonu yönetir  
+        ├── manager/  
+        │    ├── MazeManager.java     // Labirenti oluşturur  
+        │    └── TurnManager.java     // Ajan sıralamasını yönetir  
+        ├── model/  
+        │    ├── Agent.java           // Ajan hareketleri ve istatistikleri  
+        │    └── MazeTile.java        // Labirent hücre yapısı  
+        └── structures/  
+             ├── Stack.java  
+             ├── Queue.java  
+             ├── SinglyLinkedList.java  
+             └── CircularLinkedList.java  
+
+
+
+ 🚀 Kurulum ve Çalıştırma  
+   ✨Gereksinimler  
+      📌Java Development Kit (JDK) 17 veya üzeri  
+      📌Bir Java IDE'si (IntelliJ IDEA, Eclipse, vs.) veya terminal  
+
+ 🚀 Çalıştırma Adımları  
+  1️⃣ Tüm .java dosyalarını com.escaping.maze paket yapısına uygun yerleştirin.  
+  2️⃣ Komut satırından derleyin:  
+      javac com/escaping/maze/**/*.java  
+  3️⃣ Programı çalıştırın   
+      java com.escaping.maze.Main  
 
     Main.java içeriği:
       public class Main {
