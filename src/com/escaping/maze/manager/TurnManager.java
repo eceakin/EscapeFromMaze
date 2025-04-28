@@ -6,12 +6,14 @@ import java.util.List;
 import com.escaping.maze.model.Agent;
 import com.escaping.maze.structures.Queue;
 
+//Manages agent turns and game progression
 public class TurnManager {
     private Queue<Agent> agentQueue;
     public int currentRound;
     private Agent winner;
     private List<Agent> allAgents;
 
+    // Initializes a new game with round 1
     public TurnManager() {
         this.agentQueue = new Queue<>();
         this.currentRound = 1;
@@ -21,63 +23,80 @@ public class TurnManager {
     }
  
 
-    // Kazananı döndüren metot
+    // Returns the winner if game has ended
     public Agent getWinner() {
         return winner;
     }
-
-    public void addAgent(Agent a) {
-        agentQueue.enqueue(a);
-        allAgents.add(a);
+    // Adds a new agent to the game
+    public void addAgent(Agent agent) {
+    	  if (agent != null) {
+              agentQueue.enqueue(agent);
+              allAgents.add(agent);
+          }
 
     }
-
+ // Processes the next turn in the queue
     public void advanceTurn() {
-        Agent a = agentQueue.dequeue();
-        if (!a.hasReachedGoal()) {
-            agentQueue.enqueue(a);
+        if (!agentQueue.isEmpty()) {
+            Agent currentAgent = agentQueue.dequeue();
+            
+            if (currentAgent.hasReachedGoal()) {
+                if (winner == null) {
+                    winner = currentAgent;
+                }
+            } else {
+                agentQueue.enqueue(currentAgent);
+            }
+            
+            currentRound++;
         }
-        else if(winner == null) {
-        	winner =a;
-        }
-        currentRound++;
     }
 
+ // Returns whose turn it is currently
     public Agent getCurrentAgent() {
         return agentQueue.peek();
     }
-
+ // Checks if all agents finished the maze
     public boolean allAgentsFinished() {
-        return agentQueue.isEmpty();
+    	  return agentQueue.size() == 0;
     }
-
-    public void logTurnSummary(Agent a) {
-        System.out.println("Round: " + currentRound + ", Agent " + a.getId() + " at position (" + a.getX() + "," + a.getY() + ")");
-    }
+ // Prints current agent's position and round
+    public void logTurnSummary(Agent agent) {
+    	 if (agent != null) {
+             System.out.printf("Current Round: %d | Agent ID: %d | Position: (%d, %d)%n",
+                              currentRound,
+                              agent.getId(),
+                              agent.getX(),
+                              agent.getY());
+         }    }
+ // Returns a copy of all registered agents
     public List<Agent> getAllAgents() {
-        return  allAgents;
+    	return new ArrayList<>(allAgents);
     }
+    
+ // Generates formatted game statistics report
     public String prepareGameSummary() {
-        List<Agent> agents = getAllAgents();
-        StringBuilder sb = new StringBuilder();
-        sb.append("===== GAME STATISTICS =====\n");
-        sb.append("Total Turns Executed: ").append(currentRound - 1).append("\n");
-
-        for (Agent agent : agents) {
-            sb.append("\nAgent ").append(agent.getId()).append(" Statistics:\n");
-            sb.append("- Moves Made: ").append(agent.getMoveCount()).append("\n");
-            sb.append("- Backtracks: ").append(agent.getBacktrackCount()).append("\n");
-            sb.append("- Traps Triggered: ").append(agent.getTrapCount()).append("\n");
-            sb.append("- Power-Ups Used: ").append(agent.getPowerUpCount()).append("\n");
-            sb.append("- Max Stack Depth: ").append(agent.getMaxStackDepth()).append("\n");
-        }
-
+        StringBuilder summaryBuilder = new StringBuilder();
+        
+        summaryBuilder.append("========== GAME SUMMARY ==========\n")
+                     .append("Total Rounds: ").append(currentRound - 1).append("\n\n");
+        
+        allAgents.forEach(agent -> {
+            summaryBuilder.append("Agent ").append(agent.getId()).append(":\n")
+                          .append("  • Move Count: ").append(agent.getMoveCount()).append("\n")
+                          .append("  • Backtrack Count: ").append(agent.getBacktrackCount()).append("\n")
+                          .append("  • Trap Encounters: ").append(agent.getTrapCount()).append("\n")
+                          .append("  • Power-Ups Collected: ").append(agent.getPowerUpCount()).append("\n")
+                          .append("  • Maximum Stack Depth: ").append(agent.getMaxStackDepth()).append("\n\n");
+        });
+        
         if (winner != null) {
-            sb.append("\nWinner: Agent ").append(winner.getId()).append("\n");
+            summaryBuilder.append("WINNING AGENT: ").append(winner.getId()).append("\n");
         } else {
-            sb.append("\nNo agent reached the goal.\n");
+            summaryBuilder.append("No winner declared.\n");
         }
-        return sb.toString();
+        
+        return summaryBuilder.toString();
     }
 
 
