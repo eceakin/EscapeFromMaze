@@ -34,7 +34,6 @@ public class GameController {
         Random random = new Random();
 
         for (int i = 0; i < numAgents; i++) {
-          
             int x, y;
             do {
                 x = random.nextInt(maze.getWidth());
@@ -48,7 +47,6 @@ public class GameController {
 
         System.out.println("Game initialized with " + numAgents + " agents.");
     }
-
     public void runSimulation() {
         while (turnCount < maxTurns && !turns.allAgentsFinished()) {
             Agent currentAgent = turns.getCurrentAgent();
