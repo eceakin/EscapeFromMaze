@@ -74,4 +74,43 @@ public class Stack<T> {
     public int size() {
         return size;
     }
+	/*public String get(int i) {
+		
+		return null;
+	}*/
+    public String get(int index) {
+        // Check if the index is valid (not negative or out of bounds)
+        if (index < 0 || index >= size) {
+            return null;  // Return null if the index is invalid
+        }
+        
+        // Start from the top of the stack
+        Node<T> current = top;
+        
+        // Traverse the stack to reach the specified index
+        for (int i = 0; i < index; i++) {
+            current = current.getNext();  // Move to the next node
+        }
+        
+        
+        return current.getValue().toString();  // Return the value of the node at the given index
+    }
+
+    public Object[] getAll() {
+        // Create an array to hold all the elements in the stack
+        Object[] elements = new Object[size];
+        
+        // Start from the top of the stack
+        Node<T> current = top;
+        
+        // Traverse through the stack and store each element in the array
+        int index = 0;
+        while (current != null) {
+            elements[index++] = current.getValue();  
+            current = current.getNext();  // Move to the next node in the stack
+        }
+        
+        // Return the array containing all elements in the stack
+        return elements;  
+    }
 }

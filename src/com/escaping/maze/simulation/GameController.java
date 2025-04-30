@@ -58,15 +58,17 @@ public class GameController {
             Agent currentAgent = turns.getCurrentAgent();
             processAgentAction(currentAgent);
             turns.logTurnSummary(currentAgent);
-
+            currentAgent.printLast5Moves(); 
             // Rotate a random corridor each turn
             Random random = new Random();
             int rowToRotate = random.nextInt(maze.getWidth());
             maze.rotateCorridor(rowToRotate);
 
             maze.printMazeSnapshot();
-            turnCount++;
+            
             turns.advanceTurn();
+            turnCount++;
+            
         }
 
         printStatistics();

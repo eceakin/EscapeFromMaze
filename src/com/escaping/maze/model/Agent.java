@@ -6,6 +6,7 @@ public class Agent {
     private int id;
     private int currX, currY;
     private Stack<String> moveHistory;
+    
 
  // New counter fields
     private int totalMoves = 0;
@@ -25,6 +26,7 @@ public class Agent {
         this.currY = startY;
         this.moveHistory = new Stack<>();
         
+        
      // Save the initial position and update the stack depth:
         recordMove(startX, startY);
     }
@@ -32,7 +34,7 @@ public class Agent {
     public void move(String direction) {
         int newX = currX;
         int newY = currY;
-
+        
         if (direction.equalsIgnoreCase("UP")) {
             newX = currX - 1;
         } 
@@ -49,13 +51,14 @@ public class Agent {
             System.out.println("Opps! Invalid direction!");
             return;
         }
-
+        
      // Move counter = increase by 1
         totalMoves++;
         int oldX = currX, oldY = currY;
         currX = newX;
         currY = newY;
         recordMove(newX, newY);
+        
     }
     // Returns the agent to its previous location
     public void backtrack() {
@@ -91,8 +94,10 @@ public class Agent {
         if (moveHistory.size() > maxStackDepth) {
             maxStackDepth = moveHistory.size();
         }
+        
+        
     }
-
+    
     // Getter methods:
     public int getId() { return id; }
     public int getX() { return currX; }
@@ -107,6 +112,22 @@ public class Agent {
     public int getPowerUpCount() { return powerUpCount; }
     public int getMaxStackDepth() { return maxStackDepth; }
     
+    public void printLast5Moves() {
+    	// Get all moves from the history stack
+        Object[] moves = moveHistory.getAll();  
+        int size = moves.length;
+     // Print the header indicating the agent's ID and the last 5 moves
+        System.out.print("Agent " + id + " Move Stack (last 5): ");
+        
+        int startIdx = Math.max(0, size - 5);
+     // Print each move in the format (x,y)
+        for (int i = startIdx; i < size; i++) {
+            String move = (String) moves[i];  // Get each move as a String
+            System.out.print("(" + move + ") ");  // Format the move in (x,y) format
+        }
+        // Print a newline after the last 5 moves
+        System.out.println();
+    }
  // Displays agent information
     @Override
     public String toString() {
