@@ -42,6 +42,7 @@ public class Stack<T> {
     	// Return the value of the popped node
     	return value;
     	}
+    	
     	}
     /*public T pop() {
         if (isEmpty()) {
@@ -52,6 +53,7 @@ public class Stack<T> {
         size--;
         return data;
     }*/
+    //bu bir yorum satırı
     
     public Object peek() {
     	if (top == null) {
