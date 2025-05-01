@@ -135,7 +135,7 @@ public class Agent {
                 "id=" + id +
                 ", pos=(" + currX + "," + currY + ")" +
                 '}';
-    }
+    } //
 }
 
 
