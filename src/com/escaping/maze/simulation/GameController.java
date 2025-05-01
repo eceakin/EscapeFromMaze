@@ -75,36 +75,6 @@ public class GameController {
         logGameSummaryToFile("game_summary.txt");
     }
 
-//    public void processAgentAction(Agent agent) {
-//        if (agent.hasReachedGoal()) return;
-//
-//        Random random = new Random();
-//        String[] directions = {"UP", "DOWN", "LEFT", "RIGHT"};
-//        String direction = directions[random.nextInt(4)];
-//
-//        if (maze.isValidMove(agent.getX(), agent.getY(), direction)) {
-//            int oldX = agent.getX();
-//            int oldY = agent.getY();
-//
-//            agent.move(direction);
-//            maze.updateAgentLocation(agent, oldX, oldY);
-//
-//            MazeTile tile = maze.getTile(agent.getX(), agent.getY());
-//            checkTileEffect(agent, tile);
-//
-//            if (tile.getType() == 'G') {
-//                agent.setReachedGoal(true);
-//                System.out.println("Agent " + agent.getId() + " has reached the goal!");
-//                if (winner == null) { // ilk goal'u bulanı kaydet
-//                    winner = agent;
-//                }
-//            }
-//        } else {
-//            // If invalid move, maybe wait or try another random move in future improvements
-//        }
-//    }
- 
-
     private void processAgentAction(Agent agent) {
     	 String[] directions = {"UP", "DOWN", "LEFT", "RIGHT"};
     	    String _direction = directions[new Random().nextInt(4)];
