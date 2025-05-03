@@ -138,12 +138,12 @@ E T W E P T E E W
 
 ## 🌟 Features
 
--✅ Dynamic corridor rotation
--✅ Backtracking via stack
--✅ Power-up collection and usage
--✅ Simulation logging and statistics generation
--✅ Hand-implemented data structures
--✅ Modular and object-oriented (OOP) code structure
+-✅ Dynamic corridor rotation  
+-✅ Backtracking via stack  
+-✅ Power-up collection and usage  
+-✅ Simulation logging and statistics generation  
+-✅ Hand-implemented data structures  
+-✅ Modular and object-oriented (OOP) code structure  
 
 
 ## 📝 License
