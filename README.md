@@ -6,31 +6,31 @@
 
 
 
-## 📚 Proje Açıklaması
+## 📚 Project Description  
 
-Bu proje, **İzmir Kâtip Çelebi Üniversitesi CENG202 - Veri Yapıları** dersi kapsamında geliştirilmiştir.  
-Amaç, klasik veri yapıları kullanarak çok ajanlı ve sıra tabanlı bir labirent kaçış simülasyonu gerçekleştirmektir.
+This project was developed as part of İzmir Kâtip Çelebi University's CENG202 - Data Structures course.
+The goal is to implement a multi-agent, turn-based maze escape simulation using classical data structures.
 
-Bu simülasyonda:
-- ✔️ Ajanlar rastgele yönlere hareket eder.  
-- ✔️ Tuzaklara düşebilir veya güçlendirici toplayabilir.  
-- ✔️ Dönen koridorlar nedeniyle labirent yapısı sürekli değişir.  
-- ✔️ Oyun sonunda ajanların performans istatistikleri kaydedilir.  
+In this simulation:
+- ✔️ Agents move in random directions.  
+- ✔️ They can fall into traps or collect power-ups.  
+- ✔️ The maze structure constantly changes due to rotating corridors.  
+- ✔️ Agent performance statistics are recorded at the end of the game.  
 
 
 
-## 💠 Kullanılan Teknolojiler ve Veri Yapıları
+## 💠 Technologies and Data Structures Used
 
 - 🚀 Java 17  
-- 🧱 Stack (Yığın) → Ajanların hareket geçmişi  
-- 🚦 Queue (Kuyruk) → Ajanların tur sıralaması  
-- 🔗 Singly Linked List → Ajanların listelenmesi  
-- 🔄 Circular Linked List → Dönen koridor yapısı  
-- 🗘️ 2D Array → Labirent ızgarası  
+- 🧱 Stack → Agent movement history  
+- 🚦 Queue → Agent turn order  
+- 🔗 Singly Linked List → Agent listing   
+- 🔄 Circular Linked List → Rotating corridor structure  
+- 🗘️ 2D Array → Maze grid  
 
 
 
-## 📆 Proje Yapısı
+## 📆 Project Structure  
 
 ```plaintext
 com/
@@ -54,23 +54,23 @@ com/
 
 
 
-## 🚀 Kurulum ve Çalıştırma
+## 🚀 Installation and Execution
 
-### ✨ Gereksinimler
+### ✨ Requirements
 
-- 📌 Java Development Kit (JDK) 17 veya üzeri  
-- 📌 Bir Java IDE'si (IntelliJ IDEA, Eclipse, vs.) veya terminal  
+- 📌 Java Development Kit (JDK) 17 or higher   
+- 📌 A Java IDE (IntelliJ IDEA, Eclipse, etc.) or terminal
 
-### 🚀 Çalıştırma Adımları
+### 🚀 Execution Steps
 
-1️⃣ Tüm `.java` dosyalarını `com.escaping.maze` paket yapısına uygun yerleştirin.  
-2️⃣ Komut satırından derleyin:  
+1️⃣  Place all .java files in the com.escaping.maze package structure.  
+2️⃣  Compile from the command line:
 
 ```bash
 javac com/escaping/maze/**/*.java
 ```
 
-3️⃣ Programı çalıştırın:  
+3️⃣ Run the program:
 
 ```bash
 java com.escaping.maze.Main
@@ -78,7 +78,7 @@ java com.escaping.maze.Main
 
 ---
 
-### Main.java içeriği:
+### Main.java content:
 
 ```java
 public class Main {
@@ -97,18 +97,18 @@ public class Main {
 
 
 
-## 🎮 Oyun Mekanikleri
+## 🎮 Game Mechanics
 
-- 🔹 Labirent rastgele oluşturulur (duvarlar, tuzaklar, güçlendiriciler, çıkış).  
-- 🔹 Ajanlar her tur bir hamle yapar (yukarı, aşağı, sola, sağa).  
-- 🔹 Bir koridor her turda döner (circular linked list).  
-- 🔹 Tuzak tetiklenirse ajan geri hareket eder (stack üzerinden backtrack).  
-- 🔹 Güçlendirici toplandığında kullanılabilir.  
-- 🔹 Oyun ya tüm ajanlar çıkışa ulaşınca ya da maksimum tur sayısına erişince biter.  
+- 🔹 Maze is randomly generated (walls, traps, power-ups, exit).   
+- 🔹 Agents make one move per turn (up, down, left, right).  
+- 🔹 One corridor rotates each turn (circular linked list).    
+- 🔹 If a trap is triggered, the agent moves back (backtracking via stack).  
+- 🔹 Collected power-ups can be used.   
+- 🔹 The game ends when all agents reach the exit or the maximum turn count is reached.  
 
 
 
-## 🎉 Örnek Maze Snapshot Çıktısı
+## 🎉 Example Maze Snapshot Output
 
 ```
 E W E P T E E W G
@@ -130,30 +130,29 @@ E T W E P T E E W
 - `A` = Agent (ajan varsa)
   
 
-## 🎊 Örnek Çıktı (Output)
+## 🎊 Example Output
 
 ![Maze Example](https://github.com/user-attachments/assets/1b68077a-a2ce-4d4b-a22f-d11127fd05be)
 
 
 
-## 🌟 Özellikler
+## 🌟 Features
 
-- ✅ Dinamik koridor rotasyonu  
-- ✅ Stack üzerinden geri hareket (backtracking)  
-- ✅ Güçlendirici toplama ve kullanımı  
-- ✅ Simülasyon loglama ve istatistik üretimi  
-- ✅ El ile yazılmış veri yapıları kullanımı  
-- ✅ Modüler ve nesne yönelimli (OOP) kod yapısı  
-
-
-
-## 📝 Lisans
-
-Bu proje sadece eğitim amaçlı geliştirilmiştir.
+-✅ Dynamic corridor rotation
+-✅ Backtracking via stack
+-✅ Power-up collection and usage
+-✅ Simulation logging and statistics generation
+-✅ Hand-implemented data structures
+-✅ Modular and object-oriented (OOP) code structure
 
 
+## 📝 License
 
-## 👩‍💻 Yazarlar
+This project was developed solely for educational purposes.
+
+
+
+## 👩‍💻 Authors
 
 - 😍 Ece Akın  
 - 😎 Betül Sarı  
